@@ -98,7 +98,7 @@ flexible_arguments_for_block do |*params|
 end
 
 puts '# 仮引数の先頭に&を付けることでメソッドにブロックを渡すことができる'
-def block_sample3(&block)
+def block_sample_with_block_arg(&block)
   puts 'stand up'
 
   block.call if block
@@ -106,7 +106,7 @@ def block_sample3(&block)
   puts 'sit down'
 end
 
-block_sample3 do
+block_sample_with_block_arg do
   puts 'walk'
 end
 
@@ -151,9 +151,9 @@ puts p2.call(person)  # kamatama(29)
 # 配列の要素を全部大文字にした新しい配列を作る
 people = %w(Alice Bob Carol)
 
-puts people.map{|person| person.upcase}
+puts people.map{|person| person.upcase}.inspect # ["ALICE", "BOB", "CAROL"]
 # Symbolに対するto_procを利用して同様の処理を行う
-puts people.map(&:upcase)
+puts people.map(&:upcase).inspect
 
 puts '# 繰り返し以外に用いられるブロック'
 # TODO 勉強会で紹介する(高)

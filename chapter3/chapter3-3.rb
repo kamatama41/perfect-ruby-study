@@ -5,7 +5,7 @@ puts '# 例外を細くするためにはbegin-rescue節で処理を囲む'
 begin
   raise 'error!'
 rescue => e
-  puts e.class
+  puts e.class # RuntimeError
   puts e.message
   puts e.backtrace
 end
@@ -15,7 +15,7 @@ puts '# Kernel.#raiseの第一引数でクラスを指定できる'
 begin
   raise StandardError, 'error!'
 rescue => e
-  puts e.class
+  puts e.class # StandardError
   puts e.message
   puts e.backtrace
 end
@@ -80,7 +80,7 @@ end
 puts '# 後置rescueの例.後置rescueは例外を指定することはできない'
 # TODO 勉強会で紹介する
 result = (1 / 0 rescue false)
-puts result
+puts result # false
 
 puts '# 例外発生に関わらず必ず実行したい処理はensure節に書く'
 # TODO 勉強会で紹介する

@@ -1,6 +1,7 @@
 puts '# 3-5-1 メソッド呼び出しと括弧'
 puts '# メソッド呼び出しの括弧は省略可能'
 puts 'hello'
+puts('hello')
 
 puts '# 戻り値を得るための式として記述する場合は括弧を付けて、手続きを実行する場合は括弧を省略する'
 # TODO 勉強会で紹介する(中)
@@ -23,15 +24,16 @@ def sweet
   'salt'
 end
 # ローカル変数へのアクセスとなる
-puts sweet
+puts sweet  # honey
 # メソッドを呼び出すには明示的に括弧を付ける
-puts sweet()
+puts sweet()  # salt
 
 puts '# 3-5-3 メソッドと定数'
 puts '# 大文字で始まるメソッドをレシーバ・引数なしで呼び出そうとするとエラーになる'
 def Hello
   puts 'Hello, My method!!'
 end
+
 begin
   Hello
 rescue => e
@@ -77,16 +79,16 @@ greet3 'kamatama', 'Hello!!!', ':)'
 puts '# 3-5-6 可変長引数'
 puts '# 引数の先頭に*を付けることで、任意の数の引数を配列として受け取ることができる'
 # TODO 勉強会で紹介する(中)
-def greet4(name, *messages)
+def greet_messages(name, *messages)
   messages.each do |message|
     puts "#{message}, #{name}"
   end
 end
 
-greet4 'kamatama', 'Hi!!', 'Hello!!'
+greet_messages 'kamatama', 'Hi!!', 'Hello!!'
 
 puts '# 引数を無視したい場合、引数に*を付けることができる'
-# TODO 勉強会で紹介する(中)
+# TODO 勉強会で紹介する(低)
 def greet5(name, *)
   puts "Hello, #{name}"
 end

@@ -1,6 +1,6 @@
 puts '# 3-4-1 任意の処理からの脱出'
 puts '# catch,throwを使ってネストした繰り返し処理からの脱出'
-# TODO 勉強会で紹介
+# TODO 勉強会で紹介(低)
 catch :triple_loop do
   loop do
     puts 'one'

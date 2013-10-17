@@ -100,6 +100,31 @@ case
     puts 'よくわかりません'
 end
 
+puts '# case文はwhenの値をレシーバーとして「===」メソッドで比較している'
+class MyString
+  def initialize(val)
+    @val = val
+  end
+
+  def ===(other)
+    @val.upcase == other.upcase
+  end
+end
+
+a = MyString.new('A')
+b = MyString.new('B')
+c = MyString.new('C')
+case 'a'
+  when a
+    puts 'Aでした'
+  when b
+    puts 'Bでした'
+  when c
+    puts 'Cでした'
+  else
+    puts 'どれでもありませんでした'
+end
+
 puts '# 3-2-2 繰り返し'
 puts '# whileを使って配列の要素を先頭から順に出力'
 languages = %w(Perl Python Ruby)
@@ -136,8 +161,8 @@ for name in %w(Alice Bob Carol)
   puts name
 end
 puts '# forループの中で定義した変数をループ外で参照可能'
-# TODO 勉強会で紹介する
-puts name
+# TODO 勉強会で紹介する(低)
+puts name # Carol
 
 puts '# hashをforループさせる場合は、要素としてキーと値が配列になった要素が取得できる'
 for val in {a:1, b:2}
@@ -184,7 +209,7 @@ result =
 puts result
 
 puts '# ループの中でnextを呼ぶと次の繰り返しに移る'
-# TODO 勉強会で紹介する
+# TODO 勉強会で紹介する(高)
 languages = %w(Prel Python Ruby Smalltalk JavaScript)
 
 languages.each do |language|
@@ -193,8 +218,8 @@ languages.each do |language|
   puts 'I found Ruby!!!'
 end
 
-puts '# ループの中でredoを呼ぶと次の繰り返しに移る'
-# TODO 勉強会で紹介する
+puts '# ループの中でredoを呼ぶともう一度その処理をやり直す'
+# TODO 勉強会で紹介する(高)
 languages = %w(Prel Python Ruby Smalltalk JavaScript)
 
 languages.each do |language|

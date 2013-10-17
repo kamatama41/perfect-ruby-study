@@ -18,7 +18,7 @@ end
 alice = Alice.new
 alice.greet_to 'Bob'
 
-# 代表的な組み込みモジュールEnumerable
+# 代表的な組み込みモジュールEnumerableを組み込んだ例
 class FriendList
   include Enumerable
 
